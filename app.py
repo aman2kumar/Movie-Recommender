@@ -14,21 +14,27 @@ def fetch_poster(movie_id):
 
 def recommend(movie):
     index = movies[movies['title'] == movie].index[0]
-    distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
+
+    # distances = sorted(list(enumerate(similarity[index])), reverse=True, key=lambda x: x[1])
     recommended_movie_names = []
     recommended_movie_posters = []
-    for i in distances[1:6]:
-        # fetch the movie poster
-        movie_id = movies.iloc[i[0]].movie_id
+    for i in range(5):
+        movie_id = movies.iloc[int(final[index + 1][i])].movie_id
         recommended_movie_posters.append(fetch_poster(movie_id))
-        recommended_movie_names.append(movies.iloc[i[0]].title)
+        recommended_movie_names.append(movies.iloc[int(final[index + 1][i])].title)
+    # for i in distances[1:6]:
+    #     # fetch the movie poster
+    #     movie_id = movies.iloc[i[0]].movie_id
+    #     recommended_movie_posters.append(fetch_poster(movie_id))
+    #     recommended_movie_names.append(movies.iloc[i[0]].title)
 
     return recommended_movie_names,recommended_movie_posters
 
 
 st.header('Movie Recommender System')
 movies = pickle.load(open('movie_list.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+# similarity = pickle.load(open('similarity.pkl','rb'))
+final = pickle.load(open('final.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie = st.selectbox(
