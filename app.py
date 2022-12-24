@@ -61,7 +61,7 @@ if st.button('Show Recommendation'):
             <img src={} width=60%; height=auto;/>
             </a>
             <h3></h3>
-            <h4 style="font-family:verdana;">Top Recommendations for {}</h4>
+            <h4 style="font-family:verdana;">Top Recommendations for <span style="color:#7DFF33;"><i>{}</></h4>
             </center><h2></h2>'''.format(self_movie[0], fetch_poster(self_movie[0]), self_movie[1]),
             unsafe_allow_html=True
         )
