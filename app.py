@@ -12,7 +12,7 @@ import requests
 def fetch_poster(movie_id):
     # Api key = 9bcfe251326546a10fd48e12ea902381
     #           8265bd1679663a7ea12ac168da84d2e8
-    url = "https://api.themoviedb.org/3/movie/{}?api_key=9bcfe251326546a10fd48e12ea902381&language=en-US".format(movie_id)
+    url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id)
     data = requests.get(url)
     data = data.json()
     poster_path = data['poster_path']
@@ -43,7 +43,8 @@ def recommend(movie):
 
 
 st.header('Movie Recommender System')
-movies = pickle.load(open('movie_list.pkl','rb'))
+# movies = pickle.load(open('movie_list.pkl','rb'))
+movies = pd.read_pickle('movie_list.pkl')
 # similarity = pickle.load(open('similarity.pkl','rb'))
 final = pickle.load(open('final.pkl','rb'))
 
