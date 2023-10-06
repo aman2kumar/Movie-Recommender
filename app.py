@@ -8,6 +8,7 @@
 import pickle
 import streamlit as st
 import requests
+import pandas as pd
 
 def fetch_poster(movie_id):
     # Api key = 9bcfe251326546a10fd48e12ea902381
