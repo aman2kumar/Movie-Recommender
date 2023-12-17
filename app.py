@@ -5,7 +5,7 @@
 # for 2) movies -> path -> movies.pkl
 #        final  -> path -> recommended_list.pkl
 #        movie_id = movies.iloc[int(final[index + 1][i])].id
-import pickle
+#import pickle
 import streamlit as st
 import requests
 import pandas as pd
